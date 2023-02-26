@@ -1,0 +1,18 @@
+.container {
+    width: 210px;
+    color: #fff;
+    background-color: #545c64;
+    --border-color: #f5f5f5;
+    --item-padding: 12px 20px;
+    --item-min-width: 28px;
+}
+
+.expand {
+    transition: all 0.2s ease;
+    transform: rotate(0);
+}
+
+.expandOpen {
+    transition: all 0.2s ease;
+    transform: rotate(180deg);
+}
