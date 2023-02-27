@@ -2,7 +2,6 @@ import * as Icons from '@mui/icons-material';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { createElement, useState } from 'react';
 import MenuItem from './MenuItem';
-import styles from './SideMenu.module.css';
 
 /**
  * 菜单数据
@@ -10,8 +9,9 @@ import styles from './SideMenu.module.css';
  * @typedef {Object} MenuData
  * @property {string} title 菜单项标题
  * @property {string | undefined} icon 菜单项图标
+ * @property {string} path 菜单项路由
  * @property {MenuData[] | undefined} subMenu 子菜单项
- * @property {import("@mui/system").SxProps<Theme> | undefined} param0.sx 样式参数
+ * @property {import("@mui/system").SxProps<Theme> | undefined} sx 子菜单项样式参数
  */
 
 /**
@@ -21,24 +21,28 @@ import styles from './SideMenu.module.css';
  * @param {MenuData} param0.title 菜单项标题
  * @param {string | undefined} param0.icon 菜单项图标
  * @param {MenuData[]} param0.menuDataList 菜单项列表
+ * @param {import("@mui/system").SxProps<Theme> | undefined} param0.sx 样式参数
+ * @param {import("@mui/system").SxProps<Theme> | undefined} param0.subSX 子菜单项样式参数
  */
-function SubMenu({ title, icon, menuDataList, sx }) {
+function SubMenu({ title, icon, menuDataList, sx, subSX }) {
     const [open, setOpen] = useState(false);
     const handleClick = () => {
         setOpen(!open);
     };
     return (
         <>
-            <ListItemButton sx={{ padding: 'var(--item-padding)' }} onClick={handleClick}>
+            <ListItemButton sx={{ padding: 'var(--mms-side-menu-item-padding)', ...sx }} onClick={handleClick}>
                 {icon && (
-                    <ListItemIcon sx={{ minWidth: 'var(--item-min-width)' }}>
-                        {createElement(Icons[icon], { color: 'normal', fontSize: 'small' })}
+                    <ListItemIcon sx={{ color: 'inherit', minWidth: 'var(--mms-side-menu-item-icon-min-width)' }}>
+                        {createElement(Icons[icon], { fontSize: 'small' })}
                     </ListItemIcon>
                 )}
                 <ListItemText primary={title} />
                 <Icons.ExpandMore
-                    className={open ? styles.expandOpen : styles.expand}
-                    color="normal"
+                    sx={{
+                        transform: `rotate(${open ? '180deg' : '0'})`,
+                        transition: 'var(--mms-transition-all-fast)'
+                    }}
                     fontSize="small"
                 />
             </ListItemButton>
@@ -51,9 +55,17 @@ function SubMenu({ title, icon, menuDataList, sx }) {
                                 title={menuData.title}
                                 icon={menuData.icon}
                                 menuDataList={menuData.subMenu}
+                                sx={subSX}
+                                subSX={menuData.sx}
                             />
                         ) : (
-                            <MenuItem key={index} title={menuData.title} icon={menuData.icon} sx={sx} />
+                            <MenuItem
+                                key={index}
+                                title={menuData.title}
+                                icon={menuData.icon}
+                                path={menuData.path}
+                                sx={subSX}
+                            />
                         )
                     )}
                 </List>

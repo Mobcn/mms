@@ -7,14 +7,20 @@ import styles from './HeadNav.module.css';
  */
 function HeadNav() {
     return (
-        <Box className={styles.container}>
-            <AppBar position="static">
+        <Box>
+            <AppBar
+                sx={{
+                    color: 'var(--mms-head-nav-text-color)',
+                    backgroundColor: 'var(--mms-head-nav-bg-color)'
+                }}
+                position="static"
+            >
                 <Toolbar>
                     <Box className={styles.logo} component="span">
                         管理系统
                     </Box>
                     <Stack sx={{ flex: 1 }}></Stack>
-                    <IconButton edge="end" size="large" color="normal">
+                    <IconButton sx={{ color: 'inherit' }} edge="end" size="large">
                         <ExitToApp fontSize="inherit" />
                     </IconButton>
                 </Toolbar>

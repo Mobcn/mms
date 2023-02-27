@@ -9,8 +9,9 @@ import styles from './SideMenu.module.css';
  * @typedef {Object} MenuData
  * @property {string} title 菜单项标题
  * @property {string | undefined} icon 菜单项图标
+ * @property {string} path 菜单项路由
  * @property {MenuData[] | undefined} subMenu 子菜单项
- * @property {import("@mui/system").SxProps<Theme> | undefined} sx 样式参数
+ * @property {import("@mui/system").SxProps<Theme> | undefined} sx 子菜单项样式参数
  */
 
 /**
@@ -29,11 +30,11 @@ function SideMenu({ menuDataList }) {
                             key={index}
                             title={menuData.title}
                             icon={menuData.icon}
-                            sx={menuData.sx}
                             menuDataList={menuData.subMenu}
+                            subSX={menuData.sx}
                         />
                     ) : (
-                        <MenuItem key={index} title={menuData.title} icon={menuData.icon} />
+                        <MenuItem key={index} title={menuData.title} icon={menuData.icon} path={menuData.path} />
                     )
                 )}
             </List>
