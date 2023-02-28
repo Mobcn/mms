@@ -47,14 +47,11 @@ export const leftMenuConfig = [
  */
 export const routeMap = (() => {
     const res = new Map();
-    const tmpArray = [...leftMenuConfig];
-    for (let item of tmpArray) {
-        if (item.subMenu) {
-            tmpArray.push(...item.subMenu);
-        } else {
-            res.set(item.path, [item._id, item.component]);
+    (function ergodic(arr) {
+        for (const item of arr) {
+            item.subMenu ? ergodic(item.subMenu) : res.set(item.path, [item._id, item.component]);
         }
-    }
+    })(leftMenuConfig);
     return res;
 })();
 
