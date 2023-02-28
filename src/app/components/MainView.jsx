@@ -9,7 +9,7 @@ function MainView({ component }) {
             sx={{
                 flex: 1,
                 backgroundColor: 'var(--mms-main-bg-color)',
-                padding: '0.3125rem'
+                padding: 'var(--mms-main-padding)'
             }}
         >
             <Box
