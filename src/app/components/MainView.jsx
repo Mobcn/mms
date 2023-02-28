@@ -17,7 +17,8 @@ function MainView({ component }) {
                     height: 0,
                     flex: 1,
                     borderRadius: 'var(--mms-border-radius-base)',
-                    backgroundColor: 'var(--mms-color-white)'
+                    backgroundColor: 'var(--mms-color-white)',
+                    overflow: 'hidden'
                 }}
             >
                 {component}
