@@ -7,23 +7,29 @@ import styles from './LeftMenu.module.css';
  * 侧边栏
  *
  * @param {Object} param0
- * @param {import("../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
+ * @param {import("../../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
  */
 function LeftMenu({ menuDataList }) {
     return (
         <Box className={styles.container}>
             <List>
-                {menuDataList.map((menuData, index) =>
+                {menuDataList.map((menuData) =>
                     menuData.subMenu ? (
                         <SubMenu
-                            key={index}
+                            key={menuData._id}
                             title={menuData.title}
                             icon={menuData.icon}
                             menuDataList={menuData.subMenu}
                             subSX={menuData.sx}
                         />
                     ) : (
-                        <MenuItem key={index} title={menuData.title} icon={menuData.icon} path={menuData.path} />
+                        <MenuItem
+                            key={menuData._id}
+                            title={menuData.title}
+                            icon={menuData.icon}
+                            path={menuData.path}
+                            sx={menuData.sx}
+                        />
                     )
                 )}
             </List>

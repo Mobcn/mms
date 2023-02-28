@@ -38,10 +38,11 @@
     --mms-head-nav-bg-color: #505860;
     --mms-head-nav-text-color: var(--mms-color-white);
   
-    --mms-side-menu-bg-color: #545c64;
-    --mms-side-menu-text-color: var(--mms-color-white);
-    --mms-side-menu-item-padding: 0.75rem 1.25rem;
-    --mms-side-menu-item-icon-min-width: 1.75rem;
+    --mms-left-menu-bg-color: #545c64;
+    --mms-left-menu-text-color: var(--mms-color-white);
+    --mms-left-menu-text-color-active: #ffeb3b;
+    --mms-left-menu-item-padding: 0.75rem 1.25rem;
+    --mms-left-menu-item-icon-min-width: 1.75rem;
   
     --mms-main-bg-color: #596172;
   }

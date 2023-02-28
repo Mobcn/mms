@@ -1,5 +1,5 @@
 .container {
     width: 13.125rem;
-    color: var(--mms-side-menu-text-color);
-    background-color: var(--mms-side-menu-bg-color);
+    color: var(--mms-left-menu-text-color);
+    background-color: var(--mms-left-menu-bg-color);
 }

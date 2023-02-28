@@ -9,7 +9,7 @@ import MenuItem from './MenuItem';
  * @param {Object} param0
  * @param {MenuData} param0.title 菜单项标题
  * @param {string | undefined} param0.icon 菜单项图标
- * @param {import("../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
+ * @param {import("../../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
  * @param {import("@mui/system").SxProps<Theme> | undefined} param0.sx 样式参数
  * @param {import("@mui/system").SxProps<Theme> | undefined} param0.subSX 子菜单项样式参数
  */
@@ -20,9 +20,9 @@ function SubMenu({ title, icon, menuDataList, sx, subSX }) {
     };
     return (
         <>
-            <ListItemButton sx={{ padding: 'var(--mms-side-menu-item-padding)', ...sx }} onClick={handleClick}>
+            <ListItemButton sx={{ padding: 'var(--mms-left-menu-item-padding)', ...sx }} onClick={handleClick}>
                 {icon && (
-                    <ListItemIcon sx={{ color: 'inherit', minWidth: 'var(--mms-side-menu-item-icon-min-width)' }}>
+                    <ListItemIcon sx={{ color: 'inherit', minWidth: 'var(--mms-left-menu-item-icon-min-width)' }}>
                         {createElement(Icons[icon], { fontSize: 'small' })}
                     </ListItemIcon>
                 )}
@@ -37,10 +37,10 @@ function SubMenu({ title, icon, menuDataList, sx, subSX }) {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    {menuDataList.map((menuData, index) =>
+                    {menuDataList.map((menuData) =>
                         menuData.subMenu ? (
                             <SubMenu
-                                key={index}
+                                key={menuData._id}
                                 title={menuData.title}
                                 icon={menuData.icon}
                                 menuDataList={menuData.subMenu}
@@ -49,11 +49,11 @@ function SubMenu({ title, icon, menuDataList, sx, subSX }) {
                             />
                         ) : (
                             <MenuItem
-                                key={index}
+                                key={menuData._id}
                                 title={menuData.title}
                                 icon={menuData.icon}
                                 path={menuData.path}
-                                sx={subSX}
+                                sx={Object.assign({}, menuData.sx, subSX)}
                             />
                         )
                     )}

@@ -11,21 +11,9 @@ export const leftMenuConfig = [
         component: '/src/components/404/_404.jsx'
     },
     {
-        title: '发布文章',
-        icon: 'Send',
-        path: '/publish',
-        component: '/src/components/404/_4042.jsx'
-    },
-    {
         title: '内容管理',
         icon: 'Stairs',
         subMenu: [
-            {
-                title: '文章管理',
-                icon: 'ArticleOutlined',
-                path: '/management/article',
-                component: '/src/components/404/_4042.jsx'
-            },
             {
                 title: '分类管理',
                 icon: 'Category',
@@ -40,32 +28,22 @@ export const leftMenuConfig = [
             }
         ],
         sx: { pl: 4 }
-    },
-    {
-        title: '系统设置',
-        icon: 'Settings',
-        subMenu: [
-            {
-                title: '常规设置',
-                icon: 'TuneOutlined',
-                path: '/setting/general',
-                component: '/src/components/404/_4042.jsx'
-            },
-            {
-                title: '上传设置',
-                icon: 'Upload',
-                path: '/setting/upload',
-                component: '/src/components/404/_4042.jsx'
-            }
-        ],
-        sx: { pl: 4 }
     }
 ];
+
+// 生成ID
+(function arrange(arr, preffix) {
+    let index = 0;
+    for (const item of arr) {
+        item._id = (preffix && preffix + '_') + index++;
+        item.subMenu && arrange(item.subMenu, item._id);
+    }
+})(leftMenuConfig, '');
 
 /**
  * 路由映射
  *
- * @type {Map<string, string>}
+ * @type {Map<string, [string, string]>}
  */
 export const routeMap = (() => {
     const res = new Map();
@@ -74,16 +52,32 @@ export const routeMap = (() => {
         if (item.subMenu) {
             tmpArray.push(...item.subMenu);
         } else {
-            res.set(item.path, item.component);
+            res.set(item.path, [item._id, item.component]);
         }
     }
     return res;
 })();
 
 /**
+ * 通过菜单项ID获取菜单项
+ *
+ * @param {string} id 菜单项ID
+ * @param {MenuData[] | undefined} thisArg 菜单配置对象
+ */
+export const getMenuItem = (id, thisArg) => {
+    const indexs = id.split('_').map((e) => Number(e));
+    let menuItem = (thisArg || leftMenuConfig)[indexs[0]];
+    for (let i = 1; i < indexs.length; ++i) {
+        menuItem = menuItem.subMenu[indexs[i]];
+    }
+    return menuItem;
+};
+
+/**
  * 菜单数据
  *
  * @typedef {Object} MenuData
+ * @property {string} _id 菜单项ID
  * @property {string} title 菜单项标题
  * @property {string | undefined} icon 菜单项图标
  * @property {string} path 菜单项路由
