@@ -1,44 +1,21 @@
 import { CssBaseline, Divider, Stack, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import HeadNav from './modules/HeadNav/HeadNav';
-import SideMenu from './modules/SideMenu/SideMenu';
-import Main from './modules/Main/Main';
-import theme from './theme/theme-base';
+import { leftMenuConfig, routeMap } from './config/left-menu';
+import { loadAsyncComponent } from './app/tools/component';
+import HeadNav from './app/components/HeadNav/HeadNav';
+import LeftMenu from './app/components/LeftMenu/LeftMenu';
+import MainView from './app/components/MainView';
+import theme from './app/theme/theme-base';
+import './app/styles/index.css';
 
-const components = import.meta.glob('/src/**/*.jsx');
-const sideMenuDataList = [
-    { title: '首页', icon: 'Home', path: '/' },
-    { title: '发布文章', icon: 'Send', path: '/publish' },
-    {
-        title: '内容管理',
-        icon: 'Stairs',
-        subMenu: [
-            { title: '文章管理', icon: 'ArticleOutlined', path: '/management/article' },
-            { title: '分类管理', icon: 'Category', path: '/management/category' },
-            { title: '标签管理', icon: 'SellOutlined', path: '/management/tag' }
-        ],
-        sx: { pl: 4 }
-    },
-    {
-        title: '系统设置',
-        icon: 'Settings',
-        subMenu: [
-            { title: '常规设置', icon: 'TuneOutlined', path: '/setting/general' },
-            { title: '上传设置', icon: 'Upload', path: '/setting/upload' }
-        ],
-        sx: { pl: 4 }
-    }
-];
-
+/**
+ * 应用
+ */
 function App() {
-    let path = useLocation();
     let [component, setComponent] = useState(<></>);
-    useEffect(() => {
-        console.log(path);
-        const url = '/src/components/404/_404.jsx';
-        components[url]().then(({ default: asyncComponent }) => setComponent(asyncComponent));
-    }, [path]);
+    const location = useLocation();
+    useEffect(() => loadAsyncComponent(routeMap.get(location.pathname), setComponent), [location.pathname]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -46,8 +23,8 @@ function App() {
                 <HeadNav />
                 <Divider />
                 <Stack direction="row" sx={{ flex: 1 }}>
-                    <SideMenu menuDataList={sideMenuDataList} />
-                    <Main component={component} />
+                    <LeftMenu menuDataList={leftMenuConfig} />
+                    <MainView component={component} />
                 </Stack>
             </Stack>
         </ThemeProvider>

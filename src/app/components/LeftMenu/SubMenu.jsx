@@ -4,23 +4,12 @@ import { createElement, useState } from 'react';
 import MenuItem from './MenuItem';
 
 /**
- * 菜单数据
- *
- * @typedef {Object} MenuData
- * @property {string} title 菜单项标题
- * @property {string | undefined} icon 菜单项图标
- * @property {string} path 菜单项路由
- * @property {MenuData[] | undefined} subMenu 子菜单项
- * @property {import("@mui/system").SxProps<Theme> | undefined} sx 子菜单项样式参数
- */
-
-/**
  * 子菜单
  *
  * @param {Object} param0
  * @param {MenuData} param0.title 菜单项标题
  * @param {string | undefined} param0.icon 菜单项图标
- * @param {MenuData[]} param0.menuDataList 菜单项列表
+ * @param {import("../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
  * @param {import("@mui/system").SxProps<Theme> | undefined} param0.sx 样式参数
  * @param {import("@mui/system").SxProps<Theme> | undefined} param0.subSX 子菜单项样式参数
  */

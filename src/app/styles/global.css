@@ -1,0 +1,23 @@
+/* 全局标签样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    color: var(--mms-color-info);
+    background: var(--mms-color-white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

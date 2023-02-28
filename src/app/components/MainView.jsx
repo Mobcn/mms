@@ -1,9 +1,9 @@
 import { Box, Stack } from '@mui/material';
 
 /**
- * 主界面
+ * 主视图
  */
-function Main({ component }) {
+function MainView({ component }) {
     return (
         <Stack
             sx={{
@@ -25,4 +25,4 @@ function Main({ component }) {
     );
 }
 
-export default Main;
+export default MainView;
