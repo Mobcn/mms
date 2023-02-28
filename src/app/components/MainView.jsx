@@ -14,6 +14,7 @@ function MainView({ component }) {
         >
             <Box
                 sx={{
+                    height: 0,
                     flex: 1,
                     borderRadius: 'var(--mms-border-radius-base)',
                     backgroundColor: 'var(--mms-color-white)'
