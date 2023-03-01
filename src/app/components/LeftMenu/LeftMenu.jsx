@@ -8,7 +8,7 @@ import styles from './LeftMenu.module.css';
  * 侧边栏
  *
  * @param {Object} param0
- * @param {import("../../../config/left-menu").MenuData[]} param0.menuDataList 菜单项列表
+ * @param {import("../../tools/left-menu").MenuData[]} param0.menuDataList 菜单项列表
  */
 function LeftMenu({ menuDataList }) {
     let [expand, setExpand] = useState(true);
