@@ -4,7 +4,7 @@ import { flatMap } from './array-expand';
  * 生成菜单项ID
  *
  * @param {MenuData[]} menuDataList 菜单数据列表
- * @param {string | undefined} preffix 菜单配置数据
+ * @param {string} preffix 菜单配置数据
  */
 function generateMenuID(menuDataList, preffix = '') {
     let index = 0;
@@ -43,11 +43,11 @@ export const resolveMenu = (config) => {
      * 通过菜单项ID获取菜单项
      *
      * @param {string} id 菜单项ID
-     * @param {MenuData[] | undefined} thisArg 菜单数据列表
+     * @param {MenuData[]} thisArg 菜单数据列表
      */
-    const getMenuItem = (id, thisArg) => {
+    const getMenuItem = (id, thisArg = menuDataList) => {
         const indexs = id.split('_').map((e) => Number(e));
-        let menuItem = (thisArg || menuDataList)[indexs[0]];
+        let menuItem = thisArg[indexs[0]];
         for (let i = 1; i < indexs.length; ++i) {
             menuItem = menuItem.subMenu[indexs[i]];
         }
@@ -82,5 +82,5 @@ export const resolveMenu = (config) => {
  * @property {MenuData[]} menuDataList 菜单数据列表
  * @property {MenuData[]} leafMenuDataList 叶节点菜单数据列表
  * @property {Map<string, [string, string]>} routeMap 路由映射集
- * @property {(id: string, thisArg: MenuData[] | undefined) => MenuData} getMenuItem 通过菜单项ID获取菜单项
+ * @property {(id: string, thisArg?: MenuData[]) => MenuData} getMenuItem 通过菜单项ID获取菜单项
  */
