@@ -8,7 +8,7 @@ export const leftMenuConfig = [
         title: '首页',
         icon: 'Home',
         path: '/',
-        component: '/src/modules/Home/Home.jsx'
+        component: '/src/pages/Home/Home.jsx'
     },
     {
         title: '内容管理',
@@ -18,13 +18,13 @@ export const leftMenuConfig = [
                 title: '分类管理',
                 icon: 'Category',
                 path: '/management/category',
-                component: '/src/modules/Management/Category/Category.jsx'
+                component: '/src/pages/Management/Category/Category.jsx'
             },
             {
                 title: '标签管理',
                 icon: 'SellOutlined',
                 path: '/management/tag',
-                component: '/src/modules/Management/Tag/Tag.jsx'
+                component: '/src/pages/Management/Tag/Tag.jsx'
             }
         ],
         sx: { pl: 4 }
