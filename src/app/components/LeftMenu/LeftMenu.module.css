@@ -1,5 +1,37 @@
 .container {
-    width: 13.125rem;
+    overflow: hidden;
+    width: var(--mms-left-menu-width);
+    transition: var(--mms-transition-all);
     color: var(--mms-left-menu-text-color);
     background-color: var(--mms-left-menu-bg-color);
+}
+
+.containerInner {
+    min-width: var(--mms-left-menu-width);
+}
+
+.switch {
+    position: absolute;
+    top: 50%;
+    left: var(--mms-left-menu-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.625rem;
+    height: 1.25rem;
+    margin-top: -0.625rem;
+    cursor: pointer;
+    transition: var(--mms-transition-all);
+    transform: scale(1, 2);
+    opacity: 0.6;
+    color: var(--mms-left-menu-switch-icon-color);
+    border: 0;
+    border-radius: 0 0.625rem 0.625rem 0;
+    background-color: var(--mms-left-menu-switch-bg-color);
+}
+
+.switchIcon {
+    font-size: 0.75rem;
+    user-select: none;
+    transform: scale(0.5, 1);
 }

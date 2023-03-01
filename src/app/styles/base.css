@@ -1,49 +1,52 @@
 /* 基础变量配置 */
 :root {
-    --mms-color-white: #ffffff;
-    --mms-color-black: #000000;
-    --mms-color-primary: #409eff;
-    --mms-color-success: #67c23a;
-    --mms-color-warning: #e6a23c;
-    --mms-color-danger: #f56c6c;
-    --mms-color-error: #f56c6c;
-    --mms-color-info: #909399;
-  
-    --mms-font-size-x-large: 1.25rem;
-    --mms-font-size-large: 1.125rem;
-    --mms-font-size-medium: 1rem;
-    --mms-font-size-base: 0.875rem;
-    --mms-font-size-small: 0.8125rem;
-    --mms-font-size-x-small: 0.75rem;
-    --mms-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑",
-      Arial, sans-serif;
-    --mms-font-weight: 500;
-    --mms-font-line-height: 1.5rem;
-  
-    --mms-index-normal: 1;
-    --mms-index-top: 1000;
-    --mms-index-popper: 2000;
-  
-    --mms-border-radius-base: 0.25rem;
-    --mms-border-radius-small: 0.125rem;
-    --mms-border-radius-round: 1.25rem;
-    --mms-border-radius-circle: 100%;
-  
-    --mms-transition-duration: 0.3s;
-    --mms-transition-duration-fast: 0.2s;
-    --mms-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
-    --mms-transition-all: all var(--mms-transition-duration) var(--mms-transition-function-ease-in-out-bezier);
-    --mms-transition-all-fast: all var(--mms-transition-duration-fast) var(--mms-transition-function-ease-in-out-bezier);
-  
-    --mms-head-nav-bg-color: #505860;
-    --mms-head-nav-text-color: var(--mms-color-white);
-  
-    --mms-left-menu-bg-color: #545c64;
-    --mms-left-menu-text-color: var(--mms-color-white);
-    --mms-left-menu-text-color-active: #ffeb3b;
-    --mms-left-menu-item-padding: 0.75rem 1.25rem;
-    --mms-left-menu-item-icon-min-width: 1.75rem;
-  
-    --mms-main-bg-color: #596172;
-    --mms-main-padding: 0.3125rem;
-  }
+  --mms-color-white: #ffffff;
+  --mms-color-black: #000000;
+  --mms-color-primary: #409eff;
+  --mms-color-success: #67c23a;
+  --mms-color-warning: #e6a23c;
+  --mms-color-danger: #f56c6c;
+  --mms-color-error: #f56c6c;
+  --mms-color-info: #909399;
+
+  --mms-font-size-x-large: 1.25rem;
+  --mms-font-size-large: 1.125rem;
+  --mms-font-size-medium: 1rem;
+  --mms-font-size-base: 0.875rem;
+  --mms-font-size-small: 0.8125rem;
+  --mms-font-size-x-small: 0.75rem;
+  --mms-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑",
+    Arial, sans-serif;
+  --mms-font-weight: 500;
+  --mms-font-line-height: 1.5rem;
+
+  --mms-index-normal: 1;
+  --mms-index-top: 1000;
+  --mms-index-popper: 2000;
+
+  --mms-border-radius-base: 0.25rem;
+  --mms-border-radius-small: 0.125rem;
+  --mms-border-radius-round: 1.25rem;
+  --mms-border-radius-circle: 100%;
+
+  --mms-transition-duration: 0.3s;
+  --mms-transition-duration-fast: 0.2s;
+  --mms-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --mms-transition-all: all var(--mms-transition-duration) var(--mms-transition-function-ease-in-out-bezier);
+  --mms-transition-all-fast: all var(--mms-transition-duration-fast) var(--mms-transition-function-ease-in-out-bezier);
+
+  --mms-head-nav-bg-color: #505860;
+  --mms-head-nav-text-color: var(--mms-color-white);
+
+  --mms-left-menu-width: 13.125rem;
+  --mms-left-menu-bg-color: #545c64;
+  --mms-left-menu-text-color: var(--mms-color-white);
+  --mms-left-menu-text-color-active: #ffeb3b;
+  --mms-left-menu-item-padding: 0.75rem 1.25rem;
+  --mms-left-menu-item-icon-min-width: 1.75rem;
+  --mms-left-menu-switch-bg-color: #212121;
+  --mms-left-menu-switch-icon-color: var(--mms-color-white);
+
+  --mms-main-bg-color: #596172;
+  --mms-main-padding: 0.3125rem;
+}
