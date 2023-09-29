@@ -42,6 +42,7 @@ function App() {
                 <Divider />
                 <Stack direction="row" sx={{ flex: 1 }}>
                     <LeftMenu menuDataList={menuDataList} />
+                    <Divider orientation='vertical' />
                     <MainView component={component} />
                 </Stack>
             </Stack>

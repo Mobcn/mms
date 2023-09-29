@@ -1,7 +1,29 @@
+.main {
+    align-items: center;
+    flex-direction: row !important;
+    gap: 0.6rem;
+}
+
 .logo {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.divider {
+    height: 2rem !important;
+}
+
+.title {
     font-family: "宋体";
     font-size: 2rem;
-    padding: 0 0.3rem;
-    border: 1px solid var(--mms-color-white);
-    border-radius: var(--mms-border-radius-base);
+}
+
+.exit {
+    color: var(--mms-head-nav-text-color) !important;
+    border: 1px solid var(--mms-head-nav-text-color) !important;
+    border-radius: var(--mms-border-radius-medium) !important;
+    box-shadow:
+        var(--mms-head-nav-text-color) 0 1px 2px inset,
+        var(--mms-head-nav-text-color) 0 1px 0.5px;
 }

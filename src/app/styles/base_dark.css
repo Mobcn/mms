@@ -46,23 +46,23 @@
   /* ***************** 组件变量 ***************** */
 
   /* 下划线 */
-  --mms-divider-color: #e5eaf2;
+  --mms-divider-color: #ffeb3b;
 
   /* 顶部导航栏 */
-  --mms-head-nav-bg-color: var(--mms-color-white);
-  --mms-head-nav-text-color: #6b7a90;
+  --mms-head-nav-bg-color: #505860;
+  --mms-head-nav-text-color: var(--mms-color-white);
 
   /* 左侧侧边栏 */
   --mms-left-menu-width: 13.125rem;
-  --mms-left-menu-bg-color: var(--mms-color-white);
-  --mms-left-menu-text-color: #1c2025;
-  --mms-left-menu-text-color-active: var(--mms-color-primary);
+  --mms-left-menu-bg-color: #545c64;
+  --mms-left-menu-text-color: var(--mms-color-white);
+  --mms-left-menu-text-color-active: #ffeb3b;
   --mms-left-menu-item-padding: 0.5rem 1rem;
   --mms-left-menu-item-icon-min-width: 1.75rem;
   --mms-left-menu-switch-bg-color: #212121;
   --mms-left-menu-switch-icon-color: var(--mms-color-white);
 
   /* 主体内容 */
-  --mms-main-bg-color: var(--mms-color-white);
+  --mms-main-bg-color: #596172;
   --mms-main-padding: 0.8rem;
 }
